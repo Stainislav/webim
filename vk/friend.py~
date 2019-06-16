@@ -1,0 +1,62 @@
+import requests
+
+token = '3e625bfc3e625bfc3e625bfc1d3e09536933e623e625bfc629e4872951fb2558db71494'
+version = 5.52
+user_id = 10205574
+
+response = requests.get(
+    'https://api.vk.com/method/friends.get',
+    params={
+            'user_id': user_id,
+            'fields': 'nickname', 
+            'access_token': token,
+            'v': version 
+           }
+)
+
+data = response.json()
+print(data)
+
+
+
+
+'''
+
+
+import urllib, json, sys
+token = 'JrLtoCcnRNc1x6f6BYk4'
+access_token = 3e625bfc3e625bfc3e625bfc1d3e09536933e623e625bfc629e4872951fb2558db71494
+def vk(meth, param):
+    url  = u'https://api.vk.com/method/%s' %meth
+    method = {
+        'friends.get'    : 'user_id=%s',
+        'users.get'      : 'user_ids=%s' ,
+        'groups.get'     : 'user_id=%s&access_token=' + token,
+        'groups.getById' : 'group_ids=%s&fields=contacts,description,members_count',
+    }[meth] %param
+ 
+    res  = urllib.urlopen(url, method).read()
+    data = json.loads( res )
+   
+    if 'error' in data:
+        print (data)
+        return list()
+    
+    return data[u'response']
+
+
+https://api.vk.com/method/friends.get?access_token=JrLtoCcnRNc1x6f6BYk4&user_id=1020557 
+
+https://api.vk.com/method/users.get?user_id=10205574&v=5.52&access_token=3e625bfc3e625bfc3e625bfc1d3e09536933e623e625bfc629e4872951fb2558db71494
+
+https://api.vk.com/method/friends.get?user_id=10205574&v=5.52&fields=nickname&access_token=3e625bfc3e625bfc3e625bfc1d3e09536933e623e625bfc629e4872951fb2558db71494
+
+
+
+
+'''
+
+
+
+
+

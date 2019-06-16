@@ -1,0 +1,13 @@
+<!-- templates/login.html -->
+
+    {% extends 'base.html' %}
+    {% block content %}
+    <div class="row">
+        <div class="col-md-8 mx-auto social-container my-2 order-md-1">
+            <button class="btn btn-dark">
+                <a href="{% url 'social:begin' 'vk-oauth2' %}">Авторизоваться</a>
+            </button>
+        </div>
+    </div>
+    </div>
+    {% endblock %}

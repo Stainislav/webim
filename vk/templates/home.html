@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row">
+       
+        <div class="col-sm-12 mb-3">
+          <h4 class="text-center">{{user.first_name}} {{user.last_name}}</h4>
+        </div>
+        
+        <ul>
+        {% for friend in friend_list %}
+            <li>{{friend}}</lis>
+        {% endfor %}
+        </ul>
+    
+        <div class="col-sm-12 mt-2 text-center">
+          <button class="btn btn-dark">
+            <a href="{% url 'logout' %}">Выйти</a>
+          </button>
+        </div>
+
+    </div>
+{% endblock %}
